@@ -55,9 +55,6 @@ public class Empleado implements Serializable{
 	@OneToOne
 	@JoinColumn(name="DIRECCION_FK", unique=true, nullable=false, updatable=false)
 	private Direccion dir;
-		
-//	private PlazaParking plaza;
-	
 
     public Empleado() {
 	}
