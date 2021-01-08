@@ -55,6 +55,10 @@ public class Empleado implements Serializable{
 	@OneToOne
 	@JoinColumn(name="DIRECCION_FK", unique=true, nullable=false, updatable=false)
 	private Direccion dir;
+	
+	@OneToOne
+	@JoinColumn(name = "Plaza_FK", unique = true, nullable = false, updatable = false)
+	private PlazaParking plaza;
 
     public Empleado() {
 	}
@@ -66,13 +70,13 @@ public class Empleado implements Serializable{
 		this.dir = dir;
 		
 	}
-//	public Empleado(String codEmpleado, String nombre, String apellidos, Direccion dir) ,PlazaParking p ) {
-//		this.codEmpleado=codEmpleado;
-//		this.nombre = nombre;
-//		this.apellidos = apellidos;
-//		this.dir = dir;
-//		this.plaza = p;
-//	}
+	public Empleado(String codEmpleado, String nombre, String apellidos, Direccion dir ,PlazaParking p ) {
+		this.codEmpleado=codEmpleado;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.dir = dir;
+		this.plaza = p;
+	}
 
 	public String getCodEmpleado() {
 		return codEmpleado;

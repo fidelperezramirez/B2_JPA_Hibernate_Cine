@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 import entidades.Direccion;
 import entidades.Empleado;
 
-public class Test1_Facade_en_consola {
+public class Test1_oneToOne_en_consola {
 
 	 public static void main(String[] arg) {
 		 try {

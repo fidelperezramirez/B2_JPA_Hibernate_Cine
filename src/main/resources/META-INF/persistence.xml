@@ -12,6 +12,7 @@
 		<!-- Si no indicamos esta etiqueta tambien nos crea automaticamente la tabla -->
 		<class>entidades.Empleado</class>
 		<class>entidades.Direccion</class>
+		<class>entidades.PlazaParking</class>
 		<properties>
 			
 			<!-- Propiedades de conexion a mysql -->
