@@ -27,7 +27,14 @@ public List<Empleado> mostrarTodos() {
 	return q.getResultList();
 }
 
-
+public Empleado mostrarMasAlto() {
+	TypedQuery<Empleado> q=this.getEm().createQuery("Select Max(e) from Empleado e",Empleado.class);
+	return q.getSingleResult();
+}
+public List<Object[]> mostrarMasAltoYBajo() {
+	Query q=this.getEm().createQuery("Select Max(e), Min(e) from Empleado e");
+	return q.getResultList();
+}
 
 
 }

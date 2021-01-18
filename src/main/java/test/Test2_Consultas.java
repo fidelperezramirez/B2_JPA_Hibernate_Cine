@@ -63,12 +63,12 @@ public class Test2_Consultas {
 		
 		System.out.println("Ejercicio 6 CONSULTAS: CONSULTAS NATIVAS");
 		System.out.println("****                                       ****");
-		Query query3=df.getEm().createNativeQuery("SELECT * FROM Direccion",Direccion.class);
+		Query query3=df.getEm().createNativeQuery("SELECT * FROM DIRECCION",Direccion.class);
 		System.out.println(query3.getResultList());
 		
 		System.out.println("Ejercicio 7 CONSULTAS: CONSULTAS NATIVAS DIFICIL");
 		System.out.println("****                                       ****");
-		Query query4=df.getEm().createNativeQuery("SELECT Nombre, Apellidos FROM Empleado Where CODDEPTO_FK=:dep");
+		Query query4=df.getEm().createNativeQuery("SELECT Nombre, Apellidos FROM EMPLEADO Where CODDEPTO_FK=:dep");
 		query4.setParameter("dep", 1);
 		//List array Object
 		List<Object[]> emples2=query4.getResultList();
@@ -76,6 +76,12 @@ public class Test2_Consultas {
 			System.out.println("Empleado "+a[0]+" "+a[1]);
 		}
 		
+		System.out.println("Ejercicio 8 CONSULTAS: CONSULTAS en JPQL que devuelva el código más alto de empleado usado");
+		System.out.println("****                                       ****");
+		System.out.println(ef.mostrarMasAlto());
+		List<Object[]> result2=ef.mostrarMasAltoYBajo();
+		System.out.println(result2.get(0)[0]);
+		System.out.println(result2.get(0)[1]);
 	}
 
 }
