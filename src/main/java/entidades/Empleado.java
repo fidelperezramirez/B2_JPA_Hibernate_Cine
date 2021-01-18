@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -36,10 +37,12 @@ import javax.persistence.UniqueConstraint;
 @Table(name="EMPLEADO", catalog = "ejercicio6", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "CODEMPLEADO"),@UniqueConstraint(columnNames = "DIRECCION_FK")
 })
-
+//consulta estatica
+@NamedQuery(name = "Empleado.findAll",query = "Select e From Empleado e")
 //,@UniqueConstraint(columnNames = "CODDEPTO_FK")
 public class Empleado implements Serializable{
 	private static final long serialVersionUID = 1L;
+	public static final String BUSCAR_TODOS_EMPLEADOS="Empleado.findAll";
 	@Id
 	@Column(name = "CODEMPLEADO", unique = true, nullable = false)
 	private String codEmpleado;
