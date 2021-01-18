@@ -37,19 +37,19 @@ public List<Proyecto> buscarProyectosDepto(int dept){
 
 public List<Proyecto> buscarProyectosDepto2(String nombre){
 	TypedQuery<Proyecto> q = this.getEm().createQuery("SELECT p FROM Proyecto p WHERE p.codDept IN"
-			+ " (SELECT d.codDept FROM Departamento d WHERE d.dnombre=:seleccionado2)",Proyecto.class);
+			+ " (SELECT d.codDept FROM Departamento d WHERE d.dnombre=:seleccionado1)",Proyecto.class);
 	q.setParameter("seleccionado1", nombre);
 	return q.getResultList();
 	}
 
 public List<Proyecto> buscarProyectosDeptoJOIN(String nombre){
 	TypedQuery<Proyecto> q = this.getEm().createQuery("SELECT p FROM Proyecto p JOIN Departamento d ON p.codDept=d.codDept "+
-			"WHERE d.dnombre=:seleccionado1)",Proyecto.class);
+			"WHERE d.dnombre=:seleccionado1",Proyecto.class);
 	q.setParameter("seleccionado1", nombre);
 	return q.getResultList();
 	}
 public List<Proyecto> buscarProyectosDeptoNotacionPunto(String nombre){
-	TypedQuery<Proyecto> q = this.getEm().createQuery("SELECT p FROM Proyecto p WHERE d.codDept.dnombre=:seleccionado1)",Proyecto.class);
+	TypedQuery<Proyecto> q = this.getEm().createQuery("SELECT p FROM Proyecto p WHERE p.codDept.dnombre=:seleccionado1",Proyecto.class);
 	q.setParameter("seleccionado1", nombre);
 	return q.getResultList();
 	}
