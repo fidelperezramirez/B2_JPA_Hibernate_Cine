@@ -14,7 +14,7 @@ import javax.persistence.UniqueConstraint;
 
 
 @Entity
-@Table(name="PLAZAPARKING", catalog = "ejercicio3", uniqueConstraints = {
+@Table(name="PLAZAPARKING", catalog = "ejercicio6", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "NUMPLAZA")
 })
 public class PlazaParking implements Serializable{
@@ -25,8 +25,11 @@ public class PlazaParking implements Serializable{
 	@Column(name = "NUMPLAZA", unique = true, nullable = false)
 	private String numPlaza; 
 	
-	@OneToOne(mappedBy = "plaza", targetEntity = Empleado.class)
-	@JoinColumn(unique = true, nullable = false, updatable = false)
+	
+	//3.3 Asociación bidireccional ONE to ONE sobre Empleado y PlazaParking
+	//mappedBy plaza es un atributo de Empleado donde se indica la plaza
+	@OneToOne ( mappedBy = "plaza", targetEntity=Empleado.class)
+	@JoinColumn( unique=true, nullable = false,  updatable=false)
 	private Empleado empleado;
 	
 	

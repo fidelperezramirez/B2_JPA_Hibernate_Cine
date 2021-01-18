@@ -10,7 +10,7 @@ import util.UtilJPA;
 
 public abstract class AbstractFacadeJPAImpl<T> implements AbstractFacadeJPA<T> {
 	private Class<T> entityClass;
-	protected EntityManager em;  //podemos permitir el acceso directo en las clases hijas o crear un getEm();
+	private EntityManager em;  //podemos permitir el acceso directo en las clases hijas o crear un getEm();
 	
 	public AbstractFacadeJPAImpl(Class<T> entityClass){
 		this.entityClass=entityClass;
@@ -29,7 +29,7 @@ public abstract class AbstractFacadeJPAImpl<T> implements AbstractFacadeJPA<T> {
 
         }catch(Exception ex){
             em.getTransaction().rollback();
-            System.out.println("Ha ocurrido un error al GUARDAR, clave duplicada");
+            System.out.println("Ha ocurrido un error al GUARDAR"+ this.getClass());
             return false;
 
         }
@@ -80,6 +80,23 @@ public abstract class AbstractFacadeJPAImpl<T> implements AbstractFacadeJPA<T> {
 	}
 	
 	
+	
+	
+	
+//	public List<Product> getProductList() {
+//        return em.createQuery("select p from Product p order by p.id").getResultList();
+//    }
 
+//	try{
+//        persona=em.find(Persona.class, id);
+//    }catch(Exception ex){
+//        System.out.println("upss!! ha ocurrido un error");
+//        ex.printStackTrace();
+//    }
+//    finally{
+//        em.close();
+//    }
+//    return persona;
+	
 	
 }

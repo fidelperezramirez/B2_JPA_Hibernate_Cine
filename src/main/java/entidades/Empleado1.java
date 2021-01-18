@@ -33,12 +33,12 @@ import javax.persistence.UniqueConstraint;
 //@Table(name="EMPLEADO", catalog = "ejercicio3", uniqueConstraints = {
 //		@UniqueConstraint(columnNames = "CODEMPLEADO")
 //})
-@Table(name="EMPLEADO", catalog = "ejercicio6", uniqueConstraints = {
+@Table(name="EMPLEADO1", catalog = "ejercicio6", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "CODEMPLEADO"),@UniqueConstraint(columnNames = "DIRECCION_FK")
 })
 
 //,@UniqueConstraint(columnNames = "CODDEPTO_FK")
-public class Empleado implements Serializable{
+public class Empleado1 implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "CODEMPLEADO", unique = true, nullable = false)
@@ -61,10 +61,6 @@ public class Empleado implements Serializable{
 		
 		
 	
-	//3.3 Asociación bidireccional ONE to ONE sobre Empleado y PlazaParking
-	@OneToOne (targetEntity=PlazaParking.class)
-	@JoinColumn(name="PLAZA_FK", unique=true, nullable = false,  updatable=false)
-	private PlazaParking plaza;
 	
 	
 	
@@ -82,23 +78,17 @@ public class Empleado implements Serializable{
    
 	
 	
-    public Empleado() {
+    public Empleado1() {
 	}
     
-    public Empleado(String codEmpleado, String nombre, String apellidos, Direccion dir ) {
+    public Empleado1(String codEmpleado, String nombre, String apellidos, Direccion dir ) {
 		this.codEmpleado=codEmpleado;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dir = dir;
 		
 	}
-	public Empleado(String codEmpleado, String nombre, String apellidos, Direccion dir,PlazaParking p ) {
-		this.codEmpleado=codEmpleado;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.dir = dir;
-		this.plaza = p;
-	}
+	
 
 	public String getCodEmpleado() {
 		return codEmpleado;
@@ -134,45 +124,15 @@ public class Empleado implements Serializable{
 
 	
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((codEmpleado == null) ? 0 : codEmpleado.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Empleado other = (Empleado) obj;
-		if (codEmpleado == null) {
-			if (other.codEmpleado != null)
-				return false;
-		} else if (!codEmpleado.equals(other.codEmpleado))
-			return false;
-		return true;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Empleado [codEmpleado=" + codEmpleado + ", nombre=" + nombre + ", apellidos=" + apellidos + ", plaza="
-				+ plaza + ", dir=" + dir + "]"+ "\n";
+		return "Empleado [codEmpleado=" + codEmpleado + ", nombre=" + nombre + ", apellidos=" + apellidos +
+			", dir=" + dir + "]"+ "\n";
 	}
 
-	public PlazaParking getPlaza() {
-		return plaza;
-	}
-
-	public void setPlaza(PlazaParking plaza) {
-		this.plaza = plaza;
-	}
-    
+	
     
     
 }
