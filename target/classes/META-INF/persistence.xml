@@ -7,19 +7,18 @@
 	<!-- Unidad de persistencia, es una unidad logica donde indicamos donde se persisten todos los objetos -->
 	<!-- Dentro definimos unas propiedades relacionadas con el acceso y el modo de conexion con mysql -->
 	<persistence-unit name="Persistencia">
+		<class>entidades.Entrada</class>
+		<class>entidades.Pase</class>
+		<class>entidades.Pelicula</class>
+		<class>entidades.Sala</class>
 		
 		<!-- <class>entidades.Socio</class> -->
 		<!-- Si no indicamos esta etiqueta tambien nos crea automaticamente la tabla -->
-		<class>entidades.Empleado</class>
-		<class>entidades.Direccion</class>
-		<class>entidades.PlazaParking</class>
-		<class>entidades.Departamento</class>
-		<class>entidades.Proyecto</class>
 		<properties>
 			
 			<!-- Propiedades de conexion a mysql -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ejercicio6" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cine" />
 			<property name="javax.persistence.jdbc.user" value="usuario" />
 			<property name="javax.persistence.jdbc.password" value="usuario" />
 			

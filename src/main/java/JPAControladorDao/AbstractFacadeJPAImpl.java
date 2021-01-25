@@ -80,23 +80,4 @@ public abstract class AbstractFacadeJPAImpl<T> implements AbstractFacadeJPA<T> {
 	}
 	
 	
-	
-	
-	
-//	public List<Product> getProductList() {
-//        return em.createQuery("select p from Product p order by p.id").getResultList();
-//    }
-
-//	try{
-//        persona=em.find(Persona.class, id);
-//    }catch(Exception ex){
-//        System.out.println("upss!! ha ocurrido un error");
-//        ex.printStackTrace();
-//    }
-//    finally{
-//        em.close();
-//    }
-//    return persona;
-	
-	
 }
